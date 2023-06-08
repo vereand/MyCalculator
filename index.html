@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    .maincontaner {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        margin: auto;
+        background-color: black;
+    }
+
+    .contaner {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid;
+        width: max-content;
+        background-color: rgb(107, 107, 232);
+        border-radius: 15px;
+    }
+
+    .take{
+        display: flex;
+        width: 280px;
+        border: 2px solid;
+        margin: 5px;
+        background-color: white;
+        color: black;
+        font-size: 55px;
+        font-weight: 500;
+        overflow:visible;
+        font-style: italic;
+        border-radius: 5px;
+    }
+
+    .button {
+        padding: 17px;
+        width: 60px;
+        margin: 5px;
+        font-size: x-large;
+        font-weight: 700;
+        box-shadow: 100px;
+        clip-path: circle(46.2% at 50% 50%);
+        clip-path: circle(46.2% at 50% 50%);
+        box-shadow: 52px;
+    }
+    h2{
+     color: white;
+    }
+    button:hover{
+        background-color: greenyellow;
+    }
+    #c:hover{
+        background-color: red;
+    }
+    #br:hover{
+        background-color: rgb(220, 190, 41);
+    }
+</style>
+
+<body>
+    <div class="maincontaner">
+        <div class="contaner">
+            <h2>MY CALCULATOR</h2>
+             <input type="text" class="take">
+            <div>
+                <button class="button" id="c">C</button>
+                <button class="button" id="br">D</button>
+                <button class="button" id="re">%</button>
+                <button class="button" id="/">/</button>
+            </div>
+            <div>
+                <button class="button" id="se">7</button>
+                <button class="button" id="ei">8</button>
+                <button class="button" id="ni">9</button>
+                <button class="button" id="mu">*</button>
+            </div>
+            <div>
+                <button class="button" id="fo">4</button>
+                <button class="button" id="fi">5</button>
+                <button class="button" id="si">6</button>
+                <button class="button" id="su">-</button>
+            </div>
+            <div>
+                <button class="button" id="on">1</button>
+                <button class="button" id="to">2</button>
+                <button class="button" id="th">3</button>
+                <button class="button" id="pl">+</button>
+            </div>
+            <div>
+                <button class="button" id="ze">0</button>
+                <button class="button" id="dze">00</button>
+                <button class="button" id="do">.</button>
+                <button class="button" id="eq">=</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    let string = "";
+     let button = document.getElementsByTagName('button');
+     Array.from(button).forEach((button)=>{
+      button.addEventListener('click',(ev)=>{
+
+        if(ev.target.innerHTML == '='){
+            string = eval(string);
+            document.querySelector('input').value = string;
+        }
+       else if(ev.target.innerHTML == 'C'){
+            string = " ";
+            document.querySelector('input').value = string;
+        }
+       else if(ev.target.innerHTML == 'D'){
+            string = string.substring(0,string.length-1)
+            document.querySelector('input').value = string;
+        }
+        else{
+            string = string +ev.target.innerHTML;
+            document.querySelector('input').value = string;
+        }
+      })
+     })
+
+    </script>
+</body>
+
+</html>
